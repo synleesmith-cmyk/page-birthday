@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#eaf4ff">
+    <title>给好朋友的生日惊喜</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 音乐按钮 -->
+    <button id="musicButton" class="music-button" type="button">
+        <span id="musicIcon">♪</span>
+        <span id="musicLabel">播放音乐</span>
+    </button>
+
+    <audio id="backgroundMusic" loop preload="none">
+        <source src="music/birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 第一页：首页 -->
+    <section id="homePage" class="page home-page">
+        <div class="home-orb orb-one"></div>
+        <div class="home-orb orb-two"></div>
+
+        <div class="home-content">
+            <p class="eyebrow">A LITTLE SURPRISE FOR YOU</p>
+            <div class="home-star">✧</div>
+            <h1 class="main-title">Happy Birthday</h1>
+            <p class="home-subtitle">
+                一岁一礼<br>
+                祝你 生日快乐
+            </p>
+            <button id="startButton" class="primary-button" type="button">
+                开启生日惊喜 ♡
+            </button>
+            <p class="home-note">记得开启音乐食用哟！</p>
+        </div>
+    </section>
+
+    <!-- 第二页：生日礼物 -->
+    <section id="giftPage" class="page celebration-page" hidden>
+        <span class="ambient-star star-a">✧</span>
+        <span class="ambient-star star-b">✦</span>
+        <span class="ambient-star star-c">✧</span>
+
+        <div class="page-heading">
+            <p class="eyebrow">HAPPY BIRTHDAY</p>
+            <h1>今天，我们林璐是寿星！</h1>
+            <p>叮咚！你有一份生日礼物待查收。</p>
+        </div>
+
+        <button id="giftButton" class="gift-button" type="button"
+                aria-expanded="false">
+            <span class="gift-box" aria-hidden="true">
+                <span class="gift-body">
+                    <span class="gift-ribbon"></span>
+                </span>
+                <span class="gift-lid"></span>
+                <span class="gift-bow"></span>
+            </span>
+            <span id="giftInstruction" class="gift-hint">
+                点击礼盒，看看里面藏着什么 ♡
+            </span>
+        </button>
+
+        <div id="giftMessage" class="gift-message" hidden>
+            <article class="birthday-card">
+                <div class="card-stars">✦ ✧ ✦</div>
+                <p class="card-label">A SPECIAL DAY FOR YOU</p>
+                <h2 class="card-title">亲爱的林璐</h2>
+                <p>生日快乐！</p>
+                <div class="card-divider"><span></span>♡<span></span></div>
+                <div class="card-content">
+                    <p>今年接触了代码，觉得生日网站这个主意很好</p>
+                    <p>于是有了这个页面。或许有点简陋，请不要嫌弃。</p>
+                    <p>接下来请开始尽情探索吧！</p>
+                    <p class="card-signature">created by sleeping ♡</p>
+                </div>
+                <div class="card-bottom-stars">✧　✦　✧</div>
+            </article>
+            <button id="toAlbumButton" class="primary-button next-button" type="button">
+                翻开我们的回忆 →
+            </button>
+        </div>
+
+        <button class="secondary-button back-button" data-go="homePage" type="button">
+            ← 返回首页
+        </button>
+    </section>
+
+    <!-- 第三页：回忆相册 -->
+    <section id="albumPage" class="page content-page" hidden>
+        <div class="page-heading">
+            <p class="eyebrow">OUR LITTLE MEMORIES</p>
+            <h1>那些和你在一起的日子</h1>
+            <p>有些瞬间过去很久，想起来还是会开心。</p>
+        </div>
+
+        <div class="album-intro">
+            <span class="intro-sparkle">✧</span>
+            <p>点开照片，重新走进那一天。</p>
+            <p class="muted-text">三张照片，三段属于我们的回忆</p>
+        </div>
+
+        <div class="photo-grid">
+            <button class="photo-card" type="button"
+                    data-title="高三校运会"
+                    data-story="这张照片是高三校运会拍的！不知不觉高三离我们也越来越远了。我一直很感激高中阶段能够遇到你遇到欣妮，因为你们，我的高中从一个人硬抗的焦虑苦楚变得生动与有趣。我想念中午下课约好12:20去吃饭的日子，想念夜修前在走廊聊八卦的日子，想念一道题目不会就拿去问你的日子，想念那些只需要走几步就能够找到好朋友的日子…">
+                <img src="photos/photo1.jpg" alt="高三校运会的回忆" class="memory-photo">
+                <span class="photo-caption">
+                    <strong>高三校运会</strong>
+                    <small>那些一起走过的日子 ♡</small>
+                </span>
+            </button>
+
+            <button class="photo-card" type="button"
+                    data-title="周五回家"
+                    data-story="这张照片应该是某天周五回家。好开心呀应该是放某个小长假吧嘿嘿。那时候坐公交车回家肯定塞车！但是没想到坐小轿车也塞车呵呵！一直以来我总觉得你总是对人际上别人的帮助比较小心翼翼，觉得别人对你的付出得有回报。但是在我看来，我们俩之间不用计较这些，真的真的没关系！">
+                <img src="photos/photo2.jpg" alt="周五回家的回忆" class="memory-photo">
+                <span class="photo-caption">
+                    <strong>周五回家</strong>
+                    <small>不用计较的友谊 ♡</small>
+                </span>
+            </button>
+
+            <button class="photo-card" type="button"
+                    data-title="大学第一次约饭"
+                    data-story="大学上课后第一次约出来吃饭吧！跟你们出来玩一直让我好开心呀，好喜欢和你们在一起玩！所有烦恼都肆无忌惮被丢在脑后！璐meme接下来请也一直这么快乐下去吧！">
+                <img src="photos/photo3.jpg" alt="大学第一次约饭的回忆" class="memory-photo">
+                <span class="photo-caption">
+                    <strong>大学第一次约饭</strong>
+                    <small>以后也要一直快乐 ♡</small>
+                </span>
+            </button>
+        </div>
+
+        <p class="section-footnote">谢谢你成为我生活里很重要的一部分 ✧</p>
+
+        <button id="toMapButton" class="primary-button next-button" type="button">
+            继续探索我们的故事 →
+        </button>
+        <button class="secondary-button back-button" data-go="giftPage" type="button">
+            ← 返回上一页
+        </button>
+    </section>
+
+    <!-- 照片回忆弹窗 -->
+    <div id="memoryModal" class="modal-overlay" hidden>
+        <article class="modal-card" role="dialog" aria-modal="true"
+                 aria-labelledby="modalTitle">
+            <button id="closeModalButton" class="modal-close"
+                    type="button" aria-label="关闭">×</button>
+            <div class="card-stars">✧ ♡ ✧</div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalStory"></p>
+            <button id="modalDoneButton" class="primary-button" type="button">
+                收下这段回忆 ♡
+            </button>
+        </article>
+    </div>
+
+    <!-- 第四页：回忆地图 -->
+    <section id="mapPage" class="page content-page" hidden>
+        <div class="page-heading">
+            <p class="eyebrow">OUR LITTLE UNIVERSE</p>
+            <h1>我们的回忆地图</h1>
+            <p>点亮星星，看看藏在里面的话。</p>
+        </div>
+
+        <div class="map-board">
+            <div class="map-path"></div>
+            <span class="map-center">✧</span>
+            <span class="map-label map-label-one">OUR STORY</span>
+            <span class="map-label map-label-two">MEMORIES</span>
+            <span class="map-label map-label-three">FOREVER</span>
+
+            <button class="map-star map-star-one" type="button"
+                    data-title="Encounter"
+                    data-story="还记得“太阳与地球”这首歌吗，虽然歌词唱的挺别离的但是我很喜欢里面“没想过，像流星交错”这句歌词。原来我们才认识了三年吗…时间已经久到我们认识的初画面我已经记不清了。当时高一还哼哧哼哧抱着化学练习册去问你物质的量计算问题，虽然我到高考都还是没搞懂…这就是最早最早的记忆了。">
+                ✦<small>相遇</small>
+            </button>
+
+            <button class="map-star map-star-two" type="button"
+                    data-title="Company"
+                    data-story="有时候我总是很喜欢犯贱，比如要去吹头的时候走过你们宿舍喊一声林璐哈哈哈！青春里有你们真好！">
+                ✦<small>陪伴</small>
+            </button>
+
+            <button class="map-star map-star-three" type="button"
+                    data-title="Future"
+                    data-story="接下来我们还会走过很多很多很多个秋天，其实现在我并不能想象如果以后我们这群人各自有了家庭会怎么样。每每想到这我就只能更加珍惜现在和你们相处的时光…">
+                ✦<small>未来</small>
+            </button>
+        </div>
+
+        <p id="mapProgress" class="map-progress" aria-live="polite">
+            已经点亮 0 / 3 颗星星
+        </p>
+        <p class="map-hint">每一颗星星，都藏着一句想对你说的话。</p>
+
+       <button id="toCapsuleButton"
+        class="primary-button next-button"
+        data-go="capsulePage"
+        type="button">
+    发现下一份惊喜 →
+       </button>
+        <button class="secondary-button back-button" data-go="albumPage" type="button">
+            ← 返回相册
+        </button>
+    </section>
+
+    <!-- 第五页：幸运礼物 -->
+    <section id="capsulePage" class="page content-page" hidden>
+        <div class="page-heading">
+            <p class="eyebrow">A LITTLE GIFT FOR YOU</p>
+            <h1>今天的幸运礼物</h1>
+            <p>听说，寿星今天会有特别的好运气。</p>
+        </div>
+
+        <div class="capsule-machine">
+            <div class="machine-top">
+                <span class="machine-label">LUCKY MACHINE</span>
+                <div class="machine-globe">
+                    <span class="machine-shine"></span>
+                    <span class="capsule capsule-one"></span>
+                    <span class="capsule capsule-two"></span>
+                    <span class="capsule capsule-three"></span>
+                    <span class="capsule capsule-four"></span>
+                </div>
+            </div>
+            <div class="machine-base">
+                <span class="machine-slot"></span>
+                <button id="turnKnob" class="machine-knob" type="button"
+                        aria-label="扭动扭蛋机旋钮">
+                    <span></span>
+                </button>
+                <span class="machine-tray"></span>
+            </div>
+        </div>
+
+        <p id="capsuleHint" class="capsule-hint">
+            准备好了吗？点击旋钮，扭出你的生日礼物。
+        </p>
+
+        <div id="capsuleReveal" class="capsule-reveal" hidden>
+            <div class="revealed-capsule">✦</div>
+            <h2>当当当！你的礼物出现啦！</h2>
+            <div class="product-placeholder">
+                <img src="photos/photo4.jpg" alt="为林璐准备的生日礼物" class="gift-photo">
+                <p>这份礼物，是专门为你准备的小小心意。</p>
+                <small>希望你拆开的时候，会有一点点惊喜。</small>
+            </div>
+            <div class="gift-reason">
+                <span class="intro-sparkle">♡</span>
+                <h3>送给你的理由</h3>
+                <p>这个是电子求签机！好像也有帮助选择困难症做出选择的功能！也希望以后的每一天我们璐meme都能摇出上上签！</p>
+            </div>
+        </div>
+
+        <button id="toLetterButton" class="primary-button next-button" type="button">
+            最后，还有一封信 →
+        </button>
+        <button class="secondary-button back-button" data-go="mapPage" type="button">
+            ← 返回地图
+        </button>
+    </section>
+
+    <!-- 第六页：未来的信 -->
+    <section id="letterPage" class="page letter-page" hidden>
+        <div class="page-heading">
+            <p class="eyebrow">A LETTER TO OUR FUTURE</p>
+            <h1>写给未来的你</h1>
+            <p>有一封信，想留给未来的你。</p>
+        </div>
+
+        <button id="openLetterButton" class="letter-envelope" type="button">
+            <span class="envelope-flap"></span>
+            <span class="envelope-heart">♡</span>
+            <span class="envelope-label">FOR LIN LU</span>
+            <small>点开这封信</small>
+        </button>
+
+        <article id="futureLetter" class="future-letter" hidden>
+            <div class="letter-paper">
+                <p class="eyebrow">A LETTER FOR YOU</p>
+                <h2>亲爱的林璐：</h2>
+                <p>这里留给我最想对未来的你说的话。</p>
+                <p>如果你正在读这封信，那么恭喜你又成功解锁了一个新年龄！虽然我不知道未来的你会是什么样子，是不是已经变成了一个更加成熟、更加理性、能够从容处理各种麻烦的大人，但我希望，无论你变成什么样子，都还保留着现在的快乐和自由。</p>
+                <p>说起来，我们认识也有三年了。三年好像不算特别长，可是已经足够让一个人从陌生人变成生活里很自然的一部分。自然到有时候，我甚至想不起我们最初是怎么认识的，也想不起第一次和你说话时究竟是什么场景。那些最开始的记忆反而模糊了，留下来的却是很多零零碎碎的小事。</p>
+                <p>我觉得人和人的相遇确实是一件挺奇妙的事。我们出生在不同的家庭，有各自的成长经历，原本可以沿着完全不同的轨迹生活，却偏偏在某个时间、某个地方认识了彼此。后来一起吃饭、一起聊天、一起经历考试和焦虑，一起抱怨生活里那些大大小小的破事。</p>
+                <p>如果没有遇见你，我的人生当然也会继续向前走，但其中一些很具体的快乐，大概就不会存在了。</p>
+                <p>所以我一直很庆幸，认识了你，也认识了欣妮。你们让我的高中不再只是一个人埋头往前赶的日子，而是多了很多可以分享的事情。那些原本很难熬的时刻，因为有了可以说话、可以一起笑的人，好像也就没有那么难了。</p>
+                <p>以后我们可能会去不同的城市，认识不同的人，忙着各自的学业、工作和生活。也许有一天，我们不能再像高中或大学这样，想见面就见面，想聊天就随时跑去找对方；也许以后再聚在一起时，我们会发现彼此的生活已经发生了很多变化。</p>
+                <p>甚至有一天，当我们回头看现在，会觉得当年那些烦恼其实没什么大不了的，也会觉得当年认真讨论过的某些事情，现在已经有了完全不同的答案。</p>
+                <p>但我希望，即使到了那个时候，我们仍然可以坐在一起，聊一聊最近发生的事情，分享一些没有什么实际意义但就是很好笑的八卦，偶尔翻出过去的照片，感叹一句：“天啊，我们当时怎么是这个样子的！”</p>
+                <p>我希望我们以后还能一起走过很多很多个秋天。</p>
+                <p>当然，作为朋友，我希望你可以一直喜欢这个世界里值得喜欢或自己热爱的东西，也希望你在遇到不那么美好的事情时，不必总是一个人消化一切，回头看看朋友总是在身旁。</p>
+                <p>希望你有很多快乐，很多自由，很多值得期待的明天。</p>
+                <p>19岁生日快乐！</p>
+                <p class="letter-signature">永远祝福你的朋友sleeping ♡</p>
+            </div>
+            <div class="final-message">
+                <span>✧</span>
+                <h2>19岁请继续勇敢地向前走！</h2>
+                <p>生日快乐林璐！</p>
+                <p class="final-english">May your days be filled with little joys.</p>
+            </div>
+        </article>
+
+        <button id="restartButton" class="primary-button restart-button" type="button">
+            回到最初的惊喜 ♡
+        </button>
+    </section>
+
+    <footer class="site-footer">
+        MADE WITH LOVE · A LITTLE BIRTHDAY MEMORY
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
